@@ -1,0 +1,443 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 132,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Outer Retinal length</th>\n",
+       "      <th>Macula Diameter by CC</th>\n",
+       "      <th>Macular Diameter by Vis</th>\n",
+       "      <th>GCL</th>\n",
+       "      <th>INL</th>\n",
+       "      <th>ONL</th>\n",
+       "      <th>ONL+ INL+GCL</th>\n",
+       "      <th>Occular Average</th>\n",
+       "      <th>Total Foveal Region length</th>\n",
+       "      <th>Bin Length</th>\n",
+       "      <th>Age</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>3675.84</td>\n",
+       "      <td>322.052342</td>\n",
+       "      <td>603.847</td>\n",
+       "      <td>27</td>\n",
+       "      <td>187</td>\n",
+       "      <td>18</td>\n",
+       "      <td>232</td>\n",
+       "      <td>2103.96</td>\n",
+       "      <td>805.130855</td>\n",
+       "      <td>40.256543</td>\n",
+       "      <td>Hch</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>3675.84</td>\n",
+       "      <td>322.052342</td>\n",
+       "      <td>603.847</td>\n",
+       "      <td>24</td>\n",
+       "      <td>190</td>\n",
+       "      <td>22</td>\n",
+       "      <td>236</td>\n",
+       "      <td>2103.96</td>\n",
+       "      <td>805.130855</td>\n",
+       "      <td>40.256543</td>\n",
+       "      <td>Hch</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>3675.84</td>\n",
+       "      <td>322.052342</td>\n",
+       "      <td>603.847</td>\n",
+       "      <td>21</td>\n",
+       "      <td>171</td>\n",
+       "      <td>23</td>\n",
+       "      <td>215</td>\n",
+       "      <td>2103.96</td>\n",
+       "      <td>805.130855</td>\n",
+       "      <td>40.256543</td>\n",
+       "      <td>Hch</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>3675.84</td>\n",
+       "      <td>322.052342</td>\n",
+       "      <td>603.847</td>\n",
+       "      <td>22</td>\n",
+       "      <td>156</td>\n",
+       "      <td>17</td>\n",
+       "      <td>195</td>\n",
+       "      <td>2103.96</td>\n",
+       "      <td>805.130855</td>\n",
+       "      <td>40.256543</td>\n",
+       "      <td>Hch</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>3675.84</td>\n",
+       "      <td>483.078513</td>\n",
+       "      <td>603.847</td>\n",
+       "      <td>22</td>\n",
+       "      <td>171</td>\n",
+       "      <td>22</td>\n",
+       "      <td>215</td>\n",
+       "      <td>2103.96</td>\n",
+       "      <td>805.130855</td>\n",
+       "      <td>40.256543</td>\n",
+       "      <td>Hch</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   Outer Retinal length  Macula Diameter by CC  Macular Diameter by Vis  GCL  \\\n",
+       "0               3675.84             322.052342                  603.847   27   \n",
+       "1               3675.84             322.052342                  603.847   24   \n",
+       "2               3675.84             322.052342                  603.847   21   \n",
+       "3               3675.84             322.052342                  603.847   22   \n",
+       "4               3675.84             483.078513                  603.847   22   \n",
+       "\n",
+       "   INL  ONL  ONL+ INL+GCL  Occular Average  Total Foveal Region length  \\\n",
+       "0  187   18           232          2103.96                  805.130855   \n",
+       "1  190   22           236          2103.96                  805.130855   \n",
+       "2  171   23           215          2103.96                  805.130855   \n",
+       "3  156   17           195          2103.96                  805.130855   \n",
+       "4  171   22           215          2103.96                  805.130855   \n",
+       "\n",
+       "   Bin Length  Age  \n",
+       "0   40.256543  Hch  \n",
+       "1   40.256543  Hch  \n",
+       "2   40.256543  Hch  \n",
+       "3   40.256543  Hch  \n",
+       "4   40.256543  Hch  "
+      ]
+     },
+     "execution_count": 132,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Importing Libraries\n",
+    "import numpy as np\n",
+    "import pandas as pd\n",
+    "from sklearn.model_selection import train_test_split\n",
+    "from sklearn.preprocessing import StandardScaler\n",
+    "from sklearn.ensemble import RandomForestClassifier\n",
+    "from sklearn.metrics import confusion_matrix, accuracy_score\n",
+    "\n",
+    "#Import dataset\n",
+    "data = pd.read_csv(\"/Users/hannahkim/Desktop/CSCI Final Project/40X_WT_dataset.csv\")\n",
+    "data1 = data.drop(['Lizard ID', 'Sex', 'Bins'], axis=1)\n",
+    "data1.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 144,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(3240, 14)\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(data.shape)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 133,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(array([0, 0, 0, ..., 4, 4, 4]), Index(['Hch', '2mo', '4mo', '6mo', 'Adt'], dtype='object'))\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:3: UserWarning: Pandas doesn't allow columns to be created via a new attribute name - see https://pandas.pydata.org/pandas-docs/stable/indexing.html#attribute-access\n",
+      "  This is separate from the ipykernel package so we can avoid doing imports until\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Creating the dependent variable class\n",
+    "factor = pd.factorize(data1['Age'])\n",
+    "data1.species = factor[0]\n",
+    "definitions = factor[1]\n",
+    "print(factor)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 134,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The independent features set: \n",
+      "[[3675.84        322.052342    603.847        27.          187.\n",
+      "    18.          232.         2103.96        805.130855     40.25654275]\n",
+      " [3675.84        322.052342    603.847        24.          190.\n",
+      "    22.          236.         2103.96        805.130855     40.25654275]\n",
+      " [3675.84        322.052342    603.847        21.          171.\n",
+      "    23.          215.         2103.96        805.130855     40.25654275]\n",
+      " [3675.84        322.052342    603.847        22.          156.\n",
+      "    17.          195.         2103.96        805.130855     40.25654275]\n",
+      " [3675.84        483.078513    603.847        22.          171.\n",
+      "    22.          215.         2103.96        805.130855     40.25654275]]\n",
+      "The dependent variable: \n",
+      "['Hch' 'Hch' 'Hch' 'Hch' 'Hch']\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Splitting the data into independent and dependent variables\n",
+    "X = data1.iloc[:,0:10].values\n",
+    "y = data1.iloc[:,10].values\n",
+    "print('The independent features set: ')\n",
+    "print(X[:5,:])\n",
+    "print('The dependent variable: ')\n",
+    "print(y[:5])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 135,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Creating the Training and Test set from data\n",
+    "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 136,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Feature Scaling\n",
+    "scaler = StandardScaler()\n",
+    "X_train = scaler.fit_transform(X_train)\n",
+    "X_test = scaler.transform(X_test)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 137,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight=None,\n",
+       "                       criterion='entropy', max_depth=None, max_features='auto',\n",
+       "                       max_leaf_nodes=None, max_samples=None,\n",
+       "                       min_impurity_decrease=0.0, min_impurity_split=None,\n",
+       "                       min_samples_leaf=1, min_samples_split=2,\n",
+       "                       min_weight_fraction_leaf=0.0, n_estimators=648,\n",
+       "                       n_jobs=None, oob_score=False, random_state=None,\n",
+       "                       verbose=0, warm_start=False)"
+      ]
+     },
+     "execution_count": 137,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Fitting Random Forest Classification to the Training set\n",
+    "classifier = RandomForestClassifier(n_estimators = 648, criterion = 'entropy')\n",
+    "classifier.fit(X_train, y_train)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 141,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th>Predicted Age</th>\n",
+       "      <th>2mo</th>\n",
+       "      <th>4mo</th>\n",
+       "      <th>6mo</th>\n",
+       "      <th>Adt</th>\n",
+       "      <th>Hch</th>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Actual Age</th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>2mo</th>\n",
+       "      <td>139</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4mo</th>\n",
+       "      <td>0</td>\n",
+       "      <td>124</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>6mo</th>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>143</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Adt</th>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>115</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Hch</th>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>127</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "Predicted Age  2mo  4mo  6mo  Adt  Hch\n",
+       "Actual Age                            \n",
+       "2mo            139    0    0    0    0\n",
+       "4mo              0  124    0    0    0\n",
+       "6mo              0    0  143    0    0\n",
+       "Adt              0    0    0  115    0\n",
+       "Hch              0    0    0    0  127"
+      ]
+     },
+     "execution_count": 141,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Predicting the Test set results\n",
+    "y_pred = classifier.predict(X_test)\n",
+    "\n",
+    "# Making the Confusion Matrix\n",
+    "confusionmatrix = pd.crosstab(y_test, y_pred, rownames=['Actual Age'], colnames=['Predicted Age'])\n",
+    "confusionmatrix.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 143,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "100.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Accuracy score\n",
+    "accuracy = accuracy_score(y_test, y_pred)*100\n",
+    "print(accuracy)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

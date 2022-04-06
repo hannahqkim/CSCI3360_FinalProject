@@ -1,6 +1,6 @@
 # CSCI3360_FinalProject
 
-**1.0 Short Biological Introduction: **
+**1.0 Short Biological Introduction:**
 	In humans, the fovea is a specialized area of the eye’s retina that is associated with our ability to see fine detail and color. However, the eyes of commonly used amniote models lack foveae. In contrast to many other lab animals, the brown anole lizard, Anolis sagrei, has a fovea. Therefore, my research lab has been one of the first labs to use the brown anole lizard model to study the development of the fovea. 
 	One of my previous research projects explored fovea maturation in developing brown anoles that have not been genetically modified. Then, another one of my previous research explored how genetic mutations induced by CRISPR could potentially cause fovea hypoplasia (or the disappearance of the fovea) of hatchling lizards. Due to the similarities in datasets between these two projects, I converged the datasets to see if I could make an interesting data science project that could predict lizard ages and mutation based on characteristics that were gathered from the lizard, the lizard eye, and the fovea. 
 
